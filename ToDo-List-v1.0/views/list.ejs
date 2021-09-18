@@ -1,0 +1,21 @@
+<%- include('headers'); -%>
+
+<div class="box" id="heading">
+    <h1><%= type %></h1>
+</div>
+
+<div class="box">
+    <% for(let i = 0; i < newtasks.length; i++) { %>
+    <div class="item">
+        <input type="checkbox" />
+        <p><%= newtasks[i] %></p>
+    </div>
+    <% } %>
+
+    <form class="item" action="/" method="post">
+        <input type="text" name="newtask" placeholder="New Task" autocomplete="off" />
+        <button type="submit" name="type" value="<%= type %>">+</button>
+    </form>
+</div>
+
+<%- include('footers'); -%>
