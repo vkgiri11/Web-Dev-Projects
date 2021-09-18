@@ -1,0 +1,68 @@
+*************** MONGODB COMMANDS FOR DATABASES *********************
+View all DataBases -> show dbs
+View Current db -> db
+Create new or switch db -> use database_name
+Delete db -> db.dropDatabase()
+
+**************** MONGODB COMMANDS FOR COLLECTIONS *******************
+View collections -> show collections
+Create a collection -> db.createCollection('collection_name')
+Delete a collection -> db.collection_name.drop()
+
+******************** MONGODB COMMANDS FOR ROWS *************************
+View all the rows in a collection -> db.collection_name.find()
+View rows in a collection(limited) -> db.collection_name.find().limit(limit_param)
+View the first instance only -> db.collection_name.findOne({key:value})
+
+Insert One Row -> 
+db.collection_name.insertOne({
+    'name': 'Harry',
+    'lang' : 'JavaScript',
+    'member_since' : 5
+})
+
+Insert Many Rows -> 
+db.collection_name.insertMany([
+    {
+        'name': 'Rohan',
+        'lang' : 'Java',
+        'member_since' : 3
+    },
+    {
+        'name': 'Anuj',
+        'lang' : 'Script',
+        'member_since' : 6
+    },
+    {
+        'name': 'Sujay',
+        'lang' : 'Python',
+        'member_since' : 2
+    }
+])
+
+Search in db -> db.collection_name.find({key: value}, {key: value}, ...)
+Count the rows -> db.collection_name.find().count()
+Sort rows -> db.collection_name.find().sort({key : 1}) : ascending
+            db.collection_name.find().sort({key : -1}) : descending
+
+Update a row -> 
+db.collection_name.updateOne(
+    {'name': 'Harry'},   : find this query 
+    { $set : {           : update with this values
+        'name': 'Harry',
+        'lang' : 'RubyOnRails',
+        'member_since' : 8
+        }
+    },
+    { upsert : true}    : if query is true, update that, else make a new row
+}                         by defualt it is false, in which case it wont update any row if the query is flase                      
+
+Rename a field in row ->
+db.collection_name.update( {'name': 'Harry'}, { $rename : {'member_since' : 'member'} } )   : for particular query
+db.collection_name.updateMany( {}, { $rename : {'member_since' : 'member'} } )              : to rename all fields in a row
+
+Delete a row -> db.collection_name.remove({key:value})
+
+Less/Greater/Equal -> db.collection_name.find({member: {$lt : 6}})
+                    lt : less than, gt : greater than, lte : less than Equal to, gte : greater than Equal to
+                    
