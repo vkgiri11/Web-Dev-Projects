@@ -1,0 +1,321 @@
+* {
+    /* This makes the padding and border
+    height included the div itself */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 14;
+}
+
+.container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.title-bar {
+    height: 5vh;
+    background-color: #141e61;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/** -----------------MENU BAR------------------------------ */
+.menu-bar {
+    height: 5vh;
+    background-color: #141e61;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-item {
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 50px;
+    width: 100px;
+    justify-content: center;
+}
+
+.menu-item.selected {
+    background-color: #fff;
+    color: #141e61;
+}
+
+.menu-item:hover {
+    background-color: #0c1550;
+    cursor: pointer;
+}
+
+.menu-item.selected:hover {
+    background-color: #fff;
+    cursor: default;
+}
+
+/** ----------------- MENU ICON BAR------------------------------ */
+.menu-icon-bar {
+    height: 6vh;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-icon {
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-icon.selected {
+    background-color: lightgrey;
+}
+
+.menu-icon:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.font-family-selector {
+    width: 150px;
+    font-family: "Times New Roman";
+}
+
+.color-fill,
+.color-text {
+    position: relative;
+}
+
+.color-picker {
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    cursor: pointer;
+    width: 26px;
+    height: 12px;
+    border: none;
+    padding: 0;
+    top: 30px;
+    left: 9px;
+}
+
+.selector {
+    margin: 5px;
+    height: 60%;
+    font-size: 14px;
+}
+
+/* target option tag inside of selector */
+/* .selector option {
+    font-size: 16px;
+} */
+
+/** ----------------- FORMULA BAR------------------------------ */
+
+.formula-bar {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0.7rem;
+    background-color: rgb(240, 240, 240);
+}
+
+.formula-editor {
+    height: 70%;
+    padding: 0 0.7rem;
+    border: 1px solid lightgrey;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.selected-cell {
+    width: 120px;
+}
+
+.formula-sign {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formula-input {
+    width: calc(100vw - 160px);
+    outline-color: #141e61;
+}
+
+/** ------------ DATA CONTAINER ----------------*/
+
+.data-container {
+    height: 75vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.select-all-box {
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgrey;
+}
+
+.col-name-container {
+    width: calc(100vw - 30px);
+    height: 30px;
+    border: 1px solid lightgrey;
+    /* makes all the child horizontalntal align */
+    display: flex;
+    flex-direction: row;
+    /* Necessary for scroll brahviour */
+    overflow: hidden;
+}
+
+.col-name {
+    /*? definig width only -> can still change the width */
+    /*? by other ways. min-width makes sure no matter what */
+    /*?  minimum width is maintained */
+    min-width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid lightgrey;
+    font-weight: bold;
+}
+
+.row-name-container {
+    width: 30px;
+    height: calc(75vh - 30px);
+    border: 1px solid lightgrey;
+    overflow: hidden;
+}
+
+.row-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 25px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.input-cell-container {
+    width: calc(100vw - 30px);
+    height: calc(75vh - 30px);
+    border: 1px solid lightgrey;
+    overflow: scroll;
+}
+
+.cell-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-cell {
+    min-width: 100px;
+    min-height: 25px;
+    border-right: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    outline-color: #141e61;
+    font-size: 14px;
+    font-family: "Times New Roman";
+}
+
+.input-cell.selected {
+    border: 2px solid #141e61;
+}
+
+/* Our box have only bottom and right greey borders  */
+/* for multiple selection we dont want the bluee border but we need the greey one */
+.input-cell.top-cell-selected {
+    border-top: none;
+}
+
+.input-cell.bottom-cell-selected {
+    border-bottom: 1px solid lightgray;
+}
+
+.input-cell.right-cell-selected {
+    border-right: 1px solid lightgray;
+}
+
+.input-cell.left-cell-selected {
+    border-left: none;
+}
+
+/** ------------ SHEET BAR ----------------*/
+.sheet-bar {
+    height: 4vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.scroller {
+    width: 70px;
+}
+
+.left-arrow-icon,
+.right-arrow-icon {
+    font-size: 26px;
+}
+
+.left-arrow-icon:hover,
+.right-arrow-icon:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.add-icon {
+    color: #141e61;
+    width: 40px;
+}
+
+.add-icon:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.sheet-tab-container {
+    border: 1px solid lightgrey;
+}
+
+.sheet-tab {
+    border-bottom: 4px solid #141e61;
+    padding: 0 10px;
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.sheet-tab:hover {
+    background-color: lightgrey;
+    cursor: default;
+}
+
+/* ! -----------NOTES----------
+
+flex direction -> row : align all containers inside that div in a horizontal row
+flex direction -> column : align all containers inside that div in a vertical column
+
+justify-content -> center : make the containers horizontally center of the div
+
+if flex dirn is row ->
+align-items -> center : align vertically
+if flex dirn is center ->
+align-items ->center : align horizontally
+
+
+*/
